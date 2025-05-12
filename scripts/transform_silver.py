@@ -28,7 +28,7 @@ def transform_silver():
         dataset = ds.dataset(silver_dir, format="parquet", partitioning="hive")
         table = dataset.to_table()
         test_df = table.to_pandas()
-        print(f"✔ Validação de leitura OK: {len(test_df)} registros.")
+        print(f"Validação de leitura OK: {len(test_df)} registros.")
     except Exception as read_err:
         print("Falha na validação da leitura dos Parquets particionados.")
         print(f"Erro: {read_err}")
