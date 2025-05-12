@@ -20,7 +20,7 @@ def aggregate_gold():
         gold_path = os.path.join(gold_dir, 'brewery_aggregates.parquet')
         agg_df.to_parquet(gold_path, index=False)
 
-        print(f"✔ Dados agregados gravados com sucesso em: {gold_path}")
+        print(f"Dados agregados gravados com sucesso em: {gold_path}")
     except Exception as e:
-        print("❌ Erro ao ler dados particionados da Silver ou ao gerar agregação.")
+        print(" Erro ao ler dados particionados da Silver ou ao gerar agregação.")
         print(f"Erro: {e}")
