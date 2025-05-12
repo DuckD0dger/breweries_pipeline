@@ -23,5 +23,3 @@ def fetch_all_breweries():
     os.makedirs('/opt/airflow/data/bronze', exist_ok=True)
     with open('/opt/airflow/data/bronze/breweries_raw.json', 'w') as f:
         json.dump(all_breweries, f)
-
-    print(f"\nFetched a total of {len(all_breweries)} breweries and saved to bronze layer")
