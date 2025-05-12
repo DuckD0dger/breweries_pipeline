@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+  airflow:
+    image: apache/airflow:2.8.1-python3.10
+    environment:
+      - AIRFLOW__CORE__EXECUTOR=SequentialExecutor
+      - AIRFLOW__CORE__FERNET_KEY=FCqHl0zyHgvQSoE39m5B2WsyeyjCEEUc9YEiBb_3Ayc=
+      - AIRFLOW__CORE__DAGS_ARE_PAUSED_AT_CREATION=false
+      - AIRFLOW__CORE__LOAD_EXAMPLES=false
+    volumes:
+      - ./dags:/opt/airflow/dags
+      - ./scripts:/opt/airflow/scripts
+      - ./data:/opt/airflow/data
+    ports:
+      - "8080:8080"
+    command: >
+      bash -c "airflow db init && airflow users create         --username admin --password admin         --firstname Admin --lastname User         --role Admin --email admin@example.com &&         airflow webserver & airflow scheduler"

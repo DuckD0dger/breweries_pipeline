@@ -1,0 +1,5 @@
+airflow
+pandas
+requests
+pyarrow
+pytest
